@@ -37,7 +37,7 @@ jobs:
 
   deploy:
     runs-on: Deployment
-    needs: build
+    needs: Build
 
     steps:
       - name: Checkout code
