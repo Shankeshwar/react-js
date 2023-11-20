@@ -6,38 +6,38 @@ on:
       - master
 
 jobs:
-  build:
-    runs-on: Build
+  # build:
+  #   runs-on: Build
 
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
+  #   steps:
+  #     - name: Checkout code
+  #       uses: actions/checkout@v2
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '14'
+  #     - name: Setup Node.js
+  #       uses: actions/setup-node@v3
+  #       with:
+  #         node-version: '14'
 
-      - name: Install dependencies
-        run: |
-          echo "DevOps Engineer"
-          echo ${{ github.workspace }}
-          cd ${{ github.workspace }} ; npm install
+  #     - name: Install dependencies
+  #       run: |
+  #         echo "DevOps Engineer"
+  #         echo ${{ github.workspace }}
+  #         cd ${{ github.workspace }} ; npm install
 
-      - name: Build
-        run: |
-          cd ${{ github.workspace }}
-          npm run build
+  #     - name: Build
+  #       run: |
+  #         cd ${{ github.workspace }}
+  #         npm run build
 
-      - name: Archive build artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: build-artifacts
-          path: build/
+  #     - name: Archive build artifacts
+  #       uses: actions/upload-artifact@v2
+  #       with:
+  #         name: build-artifacts
+  #         path: build/
 
   deploy:
     runs-on: Deployment
-    needs: Build
+    # needs: Build
 
     steps:
       - name: Checkout code
