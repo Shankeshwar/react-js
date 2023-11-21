@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    runs-on: Build
+    runs-on: build
 
     steps:
       - name: Checkout code
