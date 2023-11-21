@@ -28,11 +28,11 @@ jobs:
         run: |
           cd ${{ github.workspace }}
           npm run build
-      - name: Archive build artifacts
-        uses: actions/upload-artifact@v2
-        with:
-          name: build-artifacts
-          path: build/
+      # - name: Archive build artifacts
+      #   uses: actions/upload-artifact@v2
+      #   with:
+      #     name: build-artifacts
+      #     path: build/
 
   # deploy:
   #   runs-on: Deploy
