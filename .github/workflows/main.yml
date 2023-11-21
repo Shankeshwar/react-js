@@ -28,14 +28,15 @@ jobs:
         run: |
           cd ${{ github.workspace }}
           npm run build
-      # - name: Archive build artifacts
-      #   uses: actions/upload-artifact@v2
-      #   with:
-      #     name: build-artifacts
-      #     path: build/
+
+      - name: Archive build artifacts
+        uses: actions/upload-artifact@v2
+        with:
+          name: build-artifacts
+          path: build/
 
   # deploy:
-  #   runs-on: Deploy
+  #   runs-on: deploy-server
   #   needs: build
 
   #   steps:
@@ -49,7 +50,7 @@ jobs:
   #         path: build/
   #     - name: Copying the nginx folder
   #       run: | 
-         sudo mv ${{ github.workspace }}/build/* /var/www/html
+  #        sudo mv ${{ github.workspace }}/build/* /var/www/html
   #     - name: Configure AWS credentials
   #       uses: aws-actions/configure-aws-credentials@v2
   #       with:
@@ -60,5 +61,4 @@ jobs:
   #     - name: Copy artifacts to S3
   #       run: |
   #         aws s3 cp build/ s3://your-s3-bucket/ --recursive
-
 
